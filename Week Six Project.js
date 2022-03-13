@@ -1,7 +1,3 @@
-// Need to iterate through a turn (tie together with 5, for loop, if/else if)
-// Need to award point to higher card, no points if there's a tie, print out cards ()
-// Need to display the score at the end (similar to line 4, need if/else)
-
 var suits = ['hearts', 'diamonds', 'spades', 'clubs'];
 var values = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
 const cardValueMap = {
