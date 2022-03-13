@@ -84,3 +84,35 @@ function outputValue(playerA, playerB, roundNum) {
     console.log(`${playerB.name} plays: ${playerB.playerDeck[roundNum].value} of ${playerB.playerDeck[roundNum].suit}
     `);
 }
+
+function roundResults(playerA, playerB) {
+    for (let i = 0; i < playerA.playerDeck.length; i++) {
+        roundResults(playerA, playerB, i);
+      if (cardValueMap[playerA.playerDeck[i].value] > cardValueMap[playerB.playerDeck[i].value]) {
+        playerA.playerScore += 1;
+        console.log(`${playerA} wins!`);
+      } else if (cardValueMap[playerA.playerDeck[i].value] < cardValueMap[playerB.playerDeck[i].value]) {
+        playerB.playerScore += 1;
+        console.log(`${playerB} wins!`);
+      } else {
+          console.log(`It's a tie! Neither player receives a point.`);
+      }
+    }
+}
+
+function finalScore(playerA, playerB) {
+    if (playerA.playerScore > playerB.playerScore) {
+        console.log(`And the winner is... ${playerA}!`);
+    } else if (playerA.playerScore < playerB.playerScore) {
+        console.log(`And the winner is... ${playerB}!`);
+    } else {
+        console.log(`It's a tie! ${playerA} and ${playerB} have the same score.`);
+    }
+}
+
+let Steve = new Player('Steve');
+let Bucky = new Player('Bucky');
+
+startGame(Steve, Bucky);
+roundResults(Steve, Bucky);
+finalScore(Steve, Bucky);
